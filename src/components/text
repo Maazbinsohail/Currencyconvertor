@@ -1,0 +1,18 @@
+
+
+
+
+
+    const [users, setUsers] = useState([])
+useEffect(() => {
+  try {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(res => {
+      console.log(res)
+      setUsers(res.data)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}, [])
+users.map(user => <li key={user.id}>{user.name}</li>)
